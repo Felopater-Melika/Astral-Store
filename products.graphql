@@ -1,0 +1,37 @@
+query ProductsQuery {
+  collections(
+    first: 3
+    query: "title:solars OR title:galaxies OR title:planets"
+  ) {
+    edges {
+      node {
+        title
+        products(first: 10) {
+          edges {
+            node {
+              id
+              title
+              description
+              variants(first: 1) {
+                edges {
+                  node {
+                    price {
+                      amount
+                    }
+                  }
+                }
+              }
+              images(first: 1) {
+                edges {
+                  node {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

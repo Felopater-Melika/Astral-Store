@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Astral Store",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Astral Store is the one and only place to buy planets, solar systems, and even galaxies.",
   mainNav: [
     {
       title: "Home",
@@ -11,8 +11,8 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    cart: "/cart",
+    store: process.env.SHOPIFY_URL,
   },
+  token: process.env.X_SHOPIFY_ACCESS_TOKEN,
 }

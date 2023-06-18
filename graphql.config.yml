@@ -1,0 +1,9 @@
+schema: schema.graphql
+extensions:
+  endpoints:
+    Default GraphQL Endpoint:
+      url: https://astral-store-philo.myshopify.com/api/2023-04/graphql.json
+      headers:
+        X-Shopify-Storefront-Access-Token: 013c7c6a602f046a64da4a073e724f53
+        Content-Type: application/json
+      introspect: false
