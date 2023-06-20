@@ -31,7 +31,7 @@ const processDataAndDispatch = (
 
 export default async function IndexPage() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const response = await fetch(`${apiUrl}/items`, {
+  const response = await fetch(`https://astral-store.vercel.app/api/items`, {
     next: { revalidate: 10 },
   });
 
