@@ -25,12 +25,26 @@ export interface Galaxy {
   href: string;
 }
 
-
-export interface ProductsSlice {
+export interface Products {
   planets: Planet[];
   solarSystems: SolarSystem[];
   galaxies: Galaxy[];
   addPlanets: (planets: Planet[]) => void;
   addSolarSystems: (solarSystems: SolarSystem[]) => void;
   addGalaxies: (galaxies: Galaxy[]) => void;
+}
+
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  description: string;
+  image: any;
+}
+
+export interface ProductState {
+  all: Product[];
+  planets: Product[];
+  solars: Product[];
+  galaxies: Product[];
 }

@@ -1,51 +1,41 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface Product {
-  id: string
-  title: string
-  price: number
-  description: string
-  image: any
-}
+import { Product, ProductState } from '@/types/product';
 
-interface ProductState {
-  planets: Product[]
-  solars: Product[]
-  galaxies: Product[]
-}
+import type { RootState } from './store';
 
 const initialState: ProductState = {
+  all: [],
   planets: [],
   solars: [],
-  galaxies: []
-}
-
+  galaxies: [],
+};
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
+    setAll: (state, action: PayloadAction<Product[]>) => {
+      state.all = action.payload;
+    },
     setPlanets: (state, action: PayloadAction<Product[]>) => {
-      state.planets = action.payload
-
+      state.planets = action.payload;
     },
     setSolars: (state, action: PayloadAction<Product[]>) => {
-      state.solars = action.payload
-
+      state.solars = action.payload;
     },
     setGalaxies: (state, action: PayloadAction<Product[]>) => {
-      state.galaxies = action.payload
+      state.galaxies = action.payload;
     },
   },
-})
+});
 
-export const { setPlanets, setSolars, setGalaxies } = productsSlice.actions
+export const { setAll, setPlanets, setSolars, setGalaxies } =
+  productsSlice.actions;
 
-export const selectPlanets = (state: RootState) => state.products.planets
-export const selectSolars = (state: RootState) => state.products.solars
-export const selectGalaxies = (state: RootState) => state.products.galaxies
-export const selectAllProducts = (state: RootState) => [...state.products.planets, ...state.products.solars, ...state.products.galaxies]
+export const selectAllProducts = (state: RootState) => state.products.all;
+export const selectPlanets = (state: RootState) => state.products.planets;
+export const selectSolars = (state: RootState) => state.products.solars;
+export const selectGalaxies = (state: RootState) => state.products.galaxies;
 
-export default productsSlice.reducer
+export default productsSlice.reducer;

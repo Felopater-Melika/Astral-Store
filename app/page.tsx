@@ -1,17 +1,16 @@
-import Image from "next/image"
-import { setGalaxies, setPlanets, setSolars } from "@/store/productsSlice"
-import { store } from "@/store/store"
-
+import { log } from 'next/dist/server/typescript/utils';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+  setAll,
+  setGalaxies,
+  setPlanets,
+  setSolars,
+} from '@/store/productsSlice';
+import { store } from '@/store/store';
 
-// Generic function to map data and dispatch to store
+import Preloader from '@/components/preloader';
+import Products from '@/components/products';
+import Providers from '@/components/providers';
+
 const processDataAndDispatch = (
   data: any,
   category: any,
@@ -24,57 +23,41 @@ const processDataAndDispatch = (
       description: item.description,
       price: item.variants.edges[0].node.price.amount,
       image: item.images.edges[0].node.url,
-    }
-  })
+    };
+  });
 
-  // Dispatch action to set data in the store
-  store.dispatch(dispatchAction(processedData))
-}
-
-const formatPrice = (price: number) => {
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  })
-
-  return formatter.format(price).replace(/^(\D+)/, "")
-}
+  store.dispatch(dispatchAction(processedData));
+};
 
 export default async function IndexPage() {
-  const response = await fetch("http://localhost:3000/api/items")
-  const data = await response.json()
+  const response = await fetch('http://localhost:3000/api/items', {
+    next: { revalidate: 10 },
+  });
 
-  // Process and dispatch data for planets, solars, and galaxies
-  processDataAndDispatch(data, "planets", setPlanets)
-  processDataAndDispatch(data, "solars", setSolars)
-  processDataAndDispatch(data, "galaxies", setGalaxies)
+  const data = await response.json();
 
-  const products: any = store.getState().products
+  processDataAndDispatch(data, 'planets', setPlanets);
+  processDataAndDispatch(data, 'solars', setSolars);
+  processDataAndDispatch(data, 'galaxies', setGalaxies);
+
+  const products: any = store.getState().products;
+  const planets: any = store.getState().products.planets;
+  const solars: any = store.getState().products.solars;
+  const galaxies: any = store.getState().products.galaxies;
+
   const allProducts: any = Object.values(products).flatMap(
     (category: any) => category
-  )
+  );
 
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      {allProducts.map((product: any) => (
-        <Card key={product.id} className="w-80">
-          <CardHeader>
-            <CardTitle>{product.title}</CardTitle>
-            <CardDescription>{product.description}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Image
-              width={400}
-              height={200}
-              src={product.image}
-              alt={product.title}
-            />
-          </CardContent>
-          <CardFooter>
-            <span>${formatPrice(product.price)}</span>
-          </CardFooter>
-        </Card>
-      ))}
-    </section>
-  )
+    <Providers>
+      <Preloader
+        products={allProducts}
+        planets={planets}
+        solars={solars}
+        galaxies={galaxies}
+      />
+      <Products products={allProducts} />
+    </Providers>
+  );
 }
