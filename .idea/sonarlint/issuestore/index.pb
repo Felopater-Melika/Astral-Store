@@ -27,8 +27,6 @@ B
 styles/globals.css,8\c\8c258232cbcd5d83991c524a9e86c8d3f984fc57
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
->
-app/layout.tsx,e\e\ee80c90a95b380fdaa8bc6ba2190fbb3fdc30bb0
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 <
