@@ -10,7 +10,6 @@ const processDataAndDispatch = (
   category: any,
   dispatchAction: any
 ) => {
-  console.log('Raw data:', data);
   const processedData = data.products[category].map((item: any) => {
     return {
       id: item.id,
@@ -20,15 +19,17 @@ const processDataAndDispatch = (
       image: item.images.edges[0].node.url,
     };
   });
-  console.log('Processed data:', processedData);
 
   store.dispatch(dispatchAction(processedData));
-  console.log('Store state after dispatch:', store.getState());
 };
 
 export default async function Page() {
   const response = await fetch(
-    `${process.env.VERCEL_URL ?? 'http://localhost:3000'}/api/items`
+    `${
+      process.env.VERCEL_URL
+        ? 'https://' + process.env.VERCEL_URL
+        : 'http://localhost:3000'
+    }/api/items`
   );
 
   const data = await response.json();
