@@ -26,10 +26,9 @@ const processDataAndDispatch = (
 export default async function Page() {
   const response = await fetch(
     `${
-      process.env.VERCEL_URL
-        ? 'https://' + process.env.VERCEL_URL
-        : 'http://localhost:3000'
-    }/api/items`
+      process.env.VERCEL_URL ? process.env.VERCEL_URL : 'http://localhost:3000'
+    }/api/items`,
+    { next: { revalidate: 20 } }
   );
 
   const data = await response.json();
