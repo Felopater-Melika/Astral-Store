@@ -28,7 +28,7 @@ export default async function Page() {
   console.log(apiUrl);
   const response = await fetch(`${apiUrl}/items`);
 
-  const data = await response.json();
+  const data = response;
 
   processDataAndDispatch(data, 'planets', setPlanets);
   processDataAndDispatch(data, 'solars', setSolars);
