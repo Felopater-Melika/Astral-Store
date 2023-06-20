@@ -1,10 +1,4 @@
-import { log } from 'next/dist/server/typescript/utils';
-import {
-  setAll,
-  setGalaxies,
-  setPlanets,
-  setSolars,
-} from '@/store/productsSlice';
+import { setGalaxies, setPlanets, setSolars } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
 import Preloader from '@/components/preloader';
@@ -30,10 +24,9 @@ const processDataAndDispatch = (
 };
 
 export default async function IndexPage() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  const response = await fetch(`https://astral-store.vercel.app/api/items`, {
-    next: { revalidate: 10 },
-  });
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
+  console.log(apiUrl);
+  const response = await fetch(`${apiUrl}/items`);
 
   const data = await response.json();
 

@@ -51,3 +51,7 @@ D
 components/icons.tsx,2\e\2e00cd9043e27bf1a3706dcc48a1f9ad73576333
 H
 components/providers.tsx,8\6\864589de28e425acf2611b50b6a3916bc250ce74
+>
+store/store.ts,3\8\3892a922dbd2172744e9ad5620dc5c534534fec4
+@
+types/product.ts,1\9\194570f449014b9586dd7debc3608f7b6f80d0cf
