@@ -23,7 +23,7 @@ const processDataAndDispatch = (
   store.dispatch(dispatchAction(processedData));
 };
 
-export default async function Page() {
+export default  function Page() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL!;
   console.log(apiUrl);
   const response = await fetch(`${apiUrl}/items`);
