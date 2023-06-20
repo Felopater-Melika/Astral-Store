@@ -43,10 +43,6 @@ B
 .prettierignore,b\6\b69d8408b6c89ae66e712f0e6af68848291cfdfb
 B
 prettier.config.js,5\5\5545147ddef8ba341e646ddc20c3d3d456b3fe04
->
-store/store.ts,3\8\3892a922dbd2172744e9ad5620dc5c534534fec4
-@
-types/product.ts,1\9\194570f449014b9586dd7debc3608f7b6f80d0cf
 B
 store/cartSlice.ts,6\3\632c6f99308eced1dada2b848b659827b8d9a840
 H

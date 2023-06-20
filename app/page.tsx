@@ -30,7 +30,8 @@ const processDataAndDispatch = (
 };
 
 export default async function IndexPage() {
-  const response = await fetch('http://localhost:3000/api/items', {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const response = await fetch(`${apiUrl}/items`, {
     next: { revalidate: 10 },
   });
 
