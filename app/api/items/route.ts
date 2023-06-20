@@ -33,7 +33,6 @@ export async function GET() {
     const planets = collections.edges
       .find(({ node }: any) => node.title.toLowerCase() === 'planets')
       .node.products.edges.map(({ node }: any) => node);
-
     return NextResponse.json({
       products: {
         solars,
