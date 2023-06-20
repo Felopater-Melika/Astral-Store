@@ -36,8 +36,6 @@ B
 =
 types/cart.ts,d\6\d6cea8f493742ee279ad673dccf53975bf4c5caa
 B
-lib/test-utils.tsx,f\9\f9aafcf371accf5654e248de62634b2d3a65ef28
-B
 lib/formatPrice.ts,8\0\803400904e5266f2f4ed07df026e142381f8783e
 >
 .eslintrc.json,7\1\71c20a341bfe32aa5cd5b4384e94f942bab6a7d3
