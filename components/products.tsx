@@ -45,7 +45,7 @@ const Products = ({ products }: any) => {
   const productsToDisplay =
     displayedProducts.length > 0 ? displayedProducts : products;
   return (
-    <main className="container">
+    <main className="container sm:items-center">
       <Select onValueChange={handleSelect}>
         <SelectTrigger className="mt-10 w-[180px]">
           <SelectValue placeholder="Select Category" />
@@ -57,7 +57,7 @@ const Products = ({ products }: any) => {
           <SelectItem value="galaxies">Galaxies</SelectItem>
         </SelectContent>
       </Select>
-      <section className="grid grid-cols-3 items-center gap-6 pb-8 pt-6 md:py-10">
+      <section className="grid grid-cols-1 items-center gap-6 pb-8 pt-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {productsToDisplay.map((product: Product) => (
           <Product key={product.id} product={product} />
         ))}
