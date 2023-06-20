@@ -1,3 +1,5 @@
+'use client';
+
 import { setGalaxies, setPlanets, setSolars } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
@@ -27,10 +29,8 @@ export default async function Page() {
   const response = await fetch(
     `${
       process.env.VERCEL_URL ? process.env.VERCEL_URL : 'http://localhost:3000'
-    }/api/items`,
-    { next: { revalidate: 20 } }
+    }/api/items`
   );
-
   const data = await response.json();
 
   processDataAndDispatch(data, 'planets', setPlanets);

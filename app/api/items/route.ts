@@ -1,19 +1,52 @@
-import fs from 'fs';
-import path from 'path';
 import { NextResponse } from 'next/server';
-import { request } from 'graphql-request';
+import { gql, request } from 'graphql-request';
 
 const getProducts = async (): Promise<any> => {
-  const query = fs.readFileSync(
-    path.join(process.cwd(), 'products.graphql'),
-    'utf8'
-  );
-
   const url = `https://${process.env.STORE_NAME}.myshopify.com/api/2023-04/graphql.json`;
   const headers = {
     'X-Shopify-Storefront-Access-Token': process.env
       .X_SHOPIFY_ACCESS_TOKEN as string,
   };
+
+  const query = gql`
+    query ProductsQuery {
+      collections(
+        first: 3
+        query: "title:solars OR title:galaxies OR title:planets"
+      ) {
+        edges {
+          node {
+            title
+            products(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  description
+                  variants(first: 1) {
+                    edges {
+                      node {
+                        price {
+                          amount
+                        }
+                      }
+                    }
+                  }
+                  images(first: 1) {
+                    edges {
+                      node {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
 
   return await request(url, query, undefined, headers);
 };

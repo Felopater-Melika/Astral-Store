@@ -64,5 +64,3 @@ G
 .env.local,1\f\1fa30fea3e9ae270a3c38a6113a3689d8987d108
 =
 .editorconfig,6\2\626a747c8694eaae66f2afb3d1a745b045782c70
-F
-app/api/items/route.ts,e\0\e0d64757d6c5bd73919a484441715f3f944f458b
