@@ -49,7 +49,5 @@ F
 store/productsSlice.ts,1\f\1faea253675351eb1960ae8e2965e6410566d8a6
 H
 components/providers.tsx,8\6\864589de28e425acf2611b50b6a3916bc250ce74
-G
-components/products.tsx,f\d\fd83f2ce8d4441cc4e8d713fea8e09ad5986b967
 =
 .editorconfig,6\2\626a747c8694eaae66f2afb3d1a745b045782c70
