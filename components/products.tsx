@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-import Product from './Product';
+import Product from './product';
 
 const Products = ({ products }: any) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
