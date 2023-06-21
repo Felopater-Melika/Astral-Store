@@ -11,7 +11,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import Product from '@/components/product';
+
+import Product from './Product';
 
 const Products = ({ products }: any) => {
   const [selectedCategory, setSelectedCategory] = useState('all');

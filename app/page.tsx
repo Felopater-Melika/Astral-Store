@@ -1,10 +1,9 @@
-// page.tsx
 import { setGalaxies, setPlanets, setSolars } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
+import Products from '@/components/Products';
+import Providers from '@/components/Providers';
 import Preloader from '@/components/preloader';
-import Products from '@/components/products';
-import Providers from '@/components/providers';
 
 const apiUrl = `https://${process.env.STORE_NAME}.myshopify.com/api/2023-04/graphql.json`;
 
@@ -26,6 +25,7 @@ const query = `
                 variants(first: 1) {
                   edges {
                     node {
+                      id
                       price {
                         amount
                       }
@@ -51,6 +51,7 @@ const query = `
 const fetchProducts = async () => {
   try {
     const response = await fetch(apiUrl, {
+      next: { revalidate: 10 },
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +89,7 @@ const processDataAndDispatch = (
 ) => {
   const processedData = data.products[category].map((item: any) => {
     return {
-      id: item.id,
+      id: item.variants.edges[0].node.id,
       title: item.title,
       description: item.description,
       price: item.variants.edges[0].node.price.amount,

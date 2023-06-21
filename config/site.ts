@@ -1,18 +1,16 @@
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Astral Store",
+  name: 'Astral Store',
   description:
-    "Astral Store is the one and only place to buy planets, solar systems, and even galaxies.",
+    'Astral Store is the one and only place to buy planets, solar systems, and even galaxies.',
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: 'Home',
+      href: '/',
     },
   ],
   links: {
-    cart: "/cart",
-    store: process.env.SHOPIFY_URL,
+    cart: '/cart',
   },
-  token: process.env.X_SHOPIFY_ACCESS_TOKEN,
-}
+};

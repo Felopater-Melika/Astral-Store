@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 import { Product } from '@/types/product';
 import { Button } from '@/components/ui/button';
-import Providers from '@/components/providers';
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 
@@ -18,7 +17,6 @@ function AddToCart({ product }: { product: Product }) {
       variant="ghost"
       onClick={() => {
         dispatch(cartSlice.actions.addToCart(product));
-        console.log(store.getState().cart.items);
       }}
     >
       Add to Cart

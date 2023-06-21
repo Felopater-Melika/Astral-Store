@@ -29,8 +29,6 @@ B
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 <
 types/nav.ts,8\f\8fd75a662d66fc2487a029d042dfe59758ca2b1e
-=
-types/cart.ts,d\6\d6cea8f493742ee279ad673dccf53975bf4c5caa
 B
 lib/formatPrice.ts,8\0\803400904e5266f2f4ed07df026e142381f8783e
 >
@@ -39,8 +37,6 @@ B
 .prettierignore,b\6\b69d8408b6c89ae66e712f0e6af68848291cfdfb
 B
 prettier.config.js,5\5\5545147ddef8ba341e646ddc20c3d3d456b3fe04
-B
-store/cartSlice.ts,6\3\632c6f99308eced1dada2b848b659827b8d9a840
 H
 components/addToCart.tsx,4\a\4a27ddf970c437303c60ce7b52bce38a9c3d0d0d
 D
@@ -49,8 +45,6 @@ D
 store/store.ts,3\8\3892a922dbd2172744e9ad5620dc5c534534fec4
 @
 types/product.ts,1\9\194570f449014b9586dd7debc3608f7b6f80d0cf
-H
-components/preloader.tsx,c\e\cece8e569d8c38c5c494324ef78de7d778f1530d
 F
 components/product.tsx,4\1\414ebf59a44dc33b4f1c636633221f4944a6af15
 F
@@ -59,8 +53,9 @@ H
 components/providers.tsx,8\6\864589de28e425acf2611b50b6a3916bc250ce74
 G
 components/products.tsx,f\d\fd83f2ce8d4441cc4e8d713fea8e09ad5986b967
-:
-
-.env.local,1\f\1fa30fea3e9ae270a3c38a6113a3689d8987d108
 =
 .editorconfig,6\2\626a747c8694eaae66f2afb3d1a745b045782c70
+?
+next.config.mjs,d\f\df8bd0b91ecb778bf2a1b031c7677390c7442bb4
+>
+app/layout.tsx,e\e\ee80c90a95b380fdaa8bc6ba2190fbb3fdc30bb0

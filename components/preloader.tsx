@@ -9,8 +9,6 @@ import {
 } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
-import { Product } from '@/types/product';
-
 function Preloader({ products, planets, solars, galaxies }: any) {
   const loaded = useRef(false);
   if (!loaded.current) {

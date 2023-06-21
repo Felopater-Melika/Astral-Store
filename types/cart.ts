@@ -1,11 +1,11 @@
 export interface CartItem {
-  id: string
-  name: string
-  price: number
-  quantity: number
+  id: string;
+  title: string;
+  price: number;
+  image: string;
 }
 
 export interface Cart {
-  items: CartItem[]
-  addItem: (item: CartItem) => void
+  items: CartItem[];
+  addItem: (item: CartItem) => void;
 }

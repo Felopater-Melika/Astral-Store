@@ -12,7 +12,7 @@ import {
 
 import {Product} from "@/types/product";
 import formatPrice from "@/lib/formatPrice";
-import AddToCart from "@/components/addToCart";
+import AddToCart from "./AddToCart";
 
 function Product({ product }: { product: Product }) {
   return (
