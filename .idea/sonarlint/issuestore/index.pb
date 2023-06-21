@@ -53,5 +53,3 @@ G
 components/products.tsx,f\d\fd83f2ce8d4441cc4e8d713fea8e09ad5986b967
 =
 .editorconfig,6\2\626a747c8694eaae66f2afb3d1a745b045782c70
-?
-next.config.mjs,d\f\df8bd0b91ecb778bf2a1b031c7677390c7442bb4
