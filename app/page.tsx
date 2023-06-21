@@ -1,9 +1,9 @@
 import { setGalaxies, setPlanets, setSolars } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
-import Products from '@/components/Products';
-import Providers from '@/components/Providers';
 import Preloader from '@/components/preloader';
+import Products from '@/components/products';
+import Providers from '@/components/providers';
 
 const apiUrl = `https://${process.env.STORE_NAME}.myshopify.com/api/2023-04/graphql.json`;
 
