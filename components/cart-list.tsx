@@ -118,7 +118,7 @@ function CartList() {
         </TableBody>
       </Table>
       <div className="mt-4 flex w-80 items-center justify-between">
-        <Button onClick={createCheckout} variant="ghost">
+        <Button onClick={createCheckout} variant="ghost" className="uppercase">
           Checkout
         </Button>
         <div>${formatPrice(calculateTotal())}</div>
