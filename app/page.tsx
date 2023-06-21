@@ -117,7 +117,7 @@ export default async function Page() {
   );
 
   return (
-    <Providers>
+    <>
       <Preloader
         products={allProducts}
         planets={planets}
@@ -125,6 +125,6 @@ export default async function Page() {
         galaxies={galaxies}
       />
       <Products products={allProducts} />
-    </Providers>
+    </>
   );
 }
