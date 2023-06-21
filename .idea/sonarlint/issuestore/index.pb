@@ -13,8 +13,6 @@ Q
 lib/utils.ts,a\8\a85a9c0c67fa0e2a77f6d0f1448fb126c61bbc18
 G
 components/main-nav.tsx,4\e\4eb1af970b0a18a6115c1f86ab121867e3894861
-J
-components/site-header.tsx,3\1\31d3a76b09984aa1d76fc172922806e5c088d4ed
 H
 components/ui/button.tsx,3\4\3458df31a91148610907473abf3c4992d53d9bae
 >
