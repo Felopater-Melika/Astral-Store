@@ -1,11 +1,85 @@
-'use client';
-
+// page.tsx
 import { setGalaxies, setPlanets, setSolars } from '@/store/productsSlice';
 import { store } from '@/store/store';
 
 import Preloader from '@/components/preloader';
 import Products from '@/components/products';
 import Providers from '@/components/providers';
+
+const apiUrl = `https://${process.env.STORE_NAME}.myshopify.com/api/2023-04/graphql.json`;
+
+const query = `
+  query ProductsQuery {
+    collections(
+      first: 3
+      query: "title:solars OR title:galaxies OR title:planets"
+    ) {
+      edges {
+        node {
+          title
+          products(first: 10) {
+            edges {
+              node {
+                id
+                title
+                description
+                variants(first: 1) {
+                  edges {
+                    node {
+                      price {
+                        amount
+                      }
+                    }
+                  }
+                }
+                images(first: 1) {
+                  edges {
+                    node {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const fetchProducts = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': process.env
+          .X_SHOPIFY_ACCESS_TOKEN as string,
+      },
+      body: JSON.stringify({ query }),
+    });
+
+    const {
+      data: { collections },
+    } = await response.json();
+
+    const solars = collections.edges
+      .find(({ node }: any) => node.title.toLowerCase() === 'solars')
+      .node.products.edges.map(({ node }: any) => node);
+    const galaxies = collections.edges
+      .find(({ node }: any) => node.title.toLowerCase() === 'galaxies')
+      .node.products.edges.map(({ node }: any) => node);
+    const planets = collections.edges
+      .find(({ node }: any) => node.title.toLowerCase() === 'planets')
+      .node.products.edges.map(({ node }: any) => node);
+
+    return { products: { solars, galaxies, planets } };
+  } catch (error) {
+    console.error(error);
+    return { error: 'Failed to fetch products' };
+  }
+};
 
 const processDataAndDispatch = (
   data: any,
@@ -26,12 +100,7 @@ const processDataAndDispatch = (
 };
 
 export default async function Page() {
-  const response = await fetch(
-    `${
-      process.env.VERCEL_URL ? process.env.VERCEL_URL : 'http://localhost:3000'
-    }/api/items`
-  );
-  const data = await response.json();
+  const data = await fetchProducts();
 
   processDataAndDispatch(data, 'planets', setPlanets);
   processDataAndDispatch(data, 'solars', setSolars);

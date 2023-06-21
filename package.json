@@ -21,8 +21,6 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "encoding": "^0.1.13",
-    "graphql": "^16.6.0",
-    "graphql-request": "^6.1.0",
     "lucide-react": "0.105.0-alpha.4",
     "next": "^13.4.6",
     "next-themes": "^0.2.1",
