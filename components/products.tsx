@@ -48,14 +48,14 @@ const Products = ({ products }: any) => {
   return (
     <main className="container sm:items-center">
       <Select onValueChange={handleSelect}>
-        <SelectTrigger className="mt-10 w-[180px]">
-          <SelectValue placeholder="Select Category" />
+        <SelectTrigger className="mt-10 w-[200px]">
+          <SelectValue placeholder="SELECT A CATEGORY" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All</SelectItem>
-          <SelectItem value="planets">Planets</SelectItem>
-          <SelectItem value="solars">Star Systems</SelectItem>
-          <SelectItem value="galaxies">Galaxies</SelectItem>
+          <SelectItem value="all">ALL</SelectItem>
+          <SelectItem value="planets">PLANETS</SelectItem>
+          <SelectItem value="solars">STAR SYSTEMS</SelectItem>
+          <SelectItem value="galaxies">GALAXIES</SelectItem>
         </SelectContent>
       </Select>
       <section className="grid grid-cols-1 items-center gap-6 pb-8 pt-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

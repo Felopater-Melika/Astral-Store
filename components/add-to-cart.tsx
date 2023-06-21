@@ -1,7 +1,7 @@
 'use client';
 
 import { cartSlice } from '@/store/cartSlice';
-import { AppDispatch, store } from '@/store/store';
+import { AppDispatch } from '@/store/store';
 import { useDispatch } from 'react-redux';
 
 import { Product } from '@/types/product';
@@ -15,6 +15,7 @@ function AddToCart({ product }: { product: Product }) {
   return (
     <Button
       variant="ghost"
+      className="uppercase"
       onClick={() => {
         dispatch(cartSlice.actions.addToCart(product));
       }}
