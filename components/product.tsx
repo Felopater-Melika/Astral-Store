@@ -9,7 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
 import {Product} from "@/types/product";
 import formatPrice from "@/lib/formatPrice";
 import AddToCart from "./add-to-cart";
@@ -17,9 +21,15 @@ import AddToCart from "./add-to-cart";
 function Product({ product }: { product: Product }) {
   return (
     <Card key={product.id} className="w-80">
-      <CardHeader>
+      <CardHeader className="w-80">
+        <HoverCard>
+          <HoverCardTrigger>
         <CardTitle>{product.title}</CardTitle>
+          </HoverCardTrigger>
+          <HoverCardContent>
         <CardDescription>{product.description}</CardDescription>
+          </HoverCardContent>
+        </HoverCard>
       </CardHeader>
       <CardContent>
         <Image
